@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function myfunc() {
+                var a = document.getElementById("usern").value;
+                var b = document.getElementById("pass").value;
+                var c = document.getElementById("confirm").value;
+
+                if (a === "" || a=== null) {
+                    document.getElementById("msg1").innerHTML = "**Please fill the username";
+                    return false;
+                } else if (b === "") {
+                    document.getElementById("msg2").innerHTML = "**Please fill password";
+                    return false;
+                }
+                 else if (c==="") {
+                    document.getElementById("msg2").innerHTML = "**Please fill password";
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body><div>
+            <form onsubmit="myfunc()">
+                <label>Username:</label>
+                <input type="text" id="usern" > 
+                <span id="msg1" style="color:red"></span><br><br>
+                <label>Password:</label>
+                <input type="password" id="pass" >
+                <span id="msg2"></span>
+                <br><br>
+                <label>Confirm Password:</label>
+                <input type="text" id="confirm" ><span id="msg3"></span>
+                <br><br>
+                <input type="submit" name="Submit">
+            </form>
+        </div>
+    </body>
+</html>

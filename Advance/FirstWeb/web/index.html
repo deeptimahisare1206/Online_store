@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TITLE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function myfunc() {
+                var a = document.getElementById("username").value;
+                var b = document.getElementById("pass").value;
+                var c = document.getElementById("confirm").value;
+
+//                if (a == "") {
+//                    document.getElementById("message").innerHTML = "Please fill";
+//                    return false;
+//                }
+//                else if(b==""){
+//                    document.getElementById("message").innerHTML = "Please fill";
+//                    return false;
+//                }
+            }
+        </script>
+    </head>
+    <!--<body bgcolor="grey">-->
+    <h1><a href="Navigation.html">NAVIGATION </a></h1>
+    <h1><a href="new28oct.html">Css Files</a></h1>
+    <h1>
+        Registration form <img src="1537811305394 - Copy.jpg" alt="not found" height="50px" borderradius= "50%"/>
+    </h1>
+    <table border="2" cellpadding="10px">
+        <form onsubmit="return myfunc()">
+
+            <tr>
+                <td>
+                    <label>Name: </label>
+                <td><input type="text" id="username" name="name" placeholder="First name" /><br>
+                </td>
+                </td>
+                <td>
+                    <br>
+                    <input type="text" name="name" placeholder="Last name" /> <br /><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Password: </label>
+                <td><input type="password" id="pass" name="password" />
+                    <br />
+                <td><input type="password" id="comfirm" name="password" />
+                </td>
+            <br>
+            <td><span id="message" ></span></td>
+            </td>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Date of Birth: </label>
+                <td><input type="date" name="dob" />
+                    <br />
+                    <br>
+                </td>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <label>Gender: </label>
+                </td>
+                <td>
+                    <input type="radio" name="gender">Male
+
+                    <input type="radio" name="gender">Female
+
+                    <input type="radio" name="gender">
+                    Others
+                    <br>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Address: </label>
+                <td> <input type="text" name="add" />
+                    <br />
+
+                </td>
+                <td>
+                    <br><input type="text" name="pin" placeholder="Pin Code">
+                    <br>
+                    <br>
+                </td>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Phone: </label></td>
+                <td>
+                    <input
+                        type="text"
+                        name="phone"
+                        maxlength="10"
+                        placeholder="number"
+                        required
+                        />
+                    <br>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Email: </label></td>
+                <td>
+                    <input type="email" name="" required /></td>
+            </tr>
+
+
+            <tr>
+
+                <td colspan="3">
+
+                    <input type="submit" name="" value="Save">
+                    <input type="reset" name="" value="Clear">
+
+                </td>
+
+            </tr>
+
+        </form>
+    </table>
+
+
+
+</body>
+</html>
