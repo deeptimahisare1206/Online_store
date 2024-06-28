@@ -20,8 +20,8 @@
             
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
-                PreparedStatement pst = con.prepareStatement("select * from books where BookId=?");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
+                PreparedStatement pst = con.prepareStatement("select * from Books where BookId=?");
                 pst.setString(1, id);
                 ResultSet rs1=pst.executeQuery();
                 if (rs1.next()) {

@@ -16,21 +16,35 @@
                 padding: 0;
             }
             body{
-                background: url("../image/4.jpeg");
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center;
+                background-color: rgba(150,100,255,0.5);
+            }
+            .all{
+                padding:3rem 8rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /*border: 7px solid seagreen;*/
+
+            }
+            .box1{
+                flex: 1;
+            }
+            .box1 img{
+                width:  25rem;
+                height: 20rem
             }
             .box2{
+                flex: 1;
+                display: flex;
                 /*border: 7px solid seagreen;*/
-                height:370px;
-                width: 540px;
-                padding: 30px;
+                height:20rem;
+                width: 40rem;
+                padding: 3rem;
                 font-size: x-large;
-                position: relative;
+                /*position: relative;*/
                 /*top:125px;*/
-                left:450px;
-                border-radius: 5px;
+                /*left:450px;*/
+                border-radius: 2rem;
                 backdrop-filter: blur(2px);
                 background:linear-gradient( rgba(50,150,255,0.2),rgba(10,1,10,0.5));
 
@@ -43,6 +57,9 @@
             input[type="text"],[type="password"]{
                 height: 30px;
                 width: 300px;
+                background: transparent;
+                border: none;
+                border-bottom: 3px solid black;
             }
             .btn{
                 height: 30px;
@@ -51,22 +68,42 @@
                 border-radius: 30px;
                 margin: 10px 20px 10px 0;
             }
-            @media screen and (max-width:430px){
-               
+            @media screen and (max-width:768px){
+
                 .box2{
-                    color: white;
-                    background-color: purple;
+                    flex-direction: column;
+                    height:40rem;
+                    width: 20rem;
+
                 }
-                
+                input[type="text"],[type="password"]{
+                    height: 30px;
+                    width: 15rem;
+                }
+                table{
+                    /*text-align: center;*/
+                    height: 15rem;
+                    width: 20rem;
+                }
+                .box1 img{
+                width:  20rem;
+                height: 15rem
+            }
+
             }
 
         </style>
+
     </head>
     <body>
+        <%@include file="navbar.html" %>
         <div class='all'>
-            <!--<div class="box1"></div>-->
+
             <div class="box2">
-                <form action="../userLogin" method="post">
+                <div class="box1">
+                    <img src="image/12.jpg" alt="not found"/>
+                </div>
+                <form action="userLogin" method="post">
                     <table>
                         <h1 style="text-align:center">LOGIN FORM</h1>
 
@@ -87,7 +124,7 @@
 
                     </table>
                     <p style="text-align: center"><a href="">Forgot Password?</a><br>
-                    If new user? <a href="Registration.html">SignUp</a></p>
+                        If new user? <a href="Registration.html">SignUp</a></p>
                 </form>
             </div>
         </div>

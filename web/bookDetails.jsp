@@ -54,13 +54,18 @@
         <button class="btn" ><a href="userHomepage.jsp"><i class="fa fa-home" style="font-size:30px"></i></a></button>
         <h1>
             
-            <%String str = (String)session.getAttribute("uname");
+            <%
+
+                String str = (String) session.getAttribute("uname");
+                
+                if (str != null) {
                 out.print("Welcome " + str);
-            %>
+                
+            %> 
             <br>BOOKS LIST</h1>
         <div class="bookdt">
             <h1>
-                <a href="Order.jsp"><img src="../image/order.png" alt="alt"/></a>
+                <a href="Order.jsp"><img src="image/order.png" alt="alt"/></a>
             CART =<%= (Integer)session.getAttribute("count") %>                   
             </h1>
             <table border="1">
@@ -75,8 +80,8 @@
                 <%
                     try {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
-                        PreparedStatement pst = con.prepareStatement("select * from books");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
+                        PreparedStatement pst = con.prepareStatement("select * from Books");
                         ResultSet rs = pst.executeQuery();
                         while (rs.next()) {
                             String Bid = rs.getString(1);
@@ -99,6 +104,7 @@
                     } catch (Exception e) {
                         out.print(e.getMessage());
                     }
+}
                 %>
 
             </table>

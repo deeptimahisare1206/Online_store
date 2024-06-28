@@ -82,8 +82,8 @@ public class adminLogin extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
-            PreparedStatement pst = con.prepareStatement("select * from alogin where Username=? and Password=?");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
+            PreparedStatement pst = con.prepareStatement("select * from admin_login where Username=? and Password=?");
             pst.setString(1, user);
             pst.setString(2, pass);
             ResultSet rs = pst.executeQuery();

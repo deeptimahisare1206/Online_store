@@ -83,8 +83,8 @@ public class addBook extends HttpServlet {
         int quantity = Integer.parseInt(request.getParameter("qty"));
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
-            PreparedStatement pst = con.prepareStatement("insert into books(BookName, AuthorName, Price, Quantity) values(?,?,?,?)");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
+            PreparedStatement pst = con.prepareStatement("insert into Books(BookName, AuthorName, Price, Quantity) values(?,?,?,?)");
             pst.setString(1, bname);
             pst.setString(2, aname);
             pst.setInt(3, price);

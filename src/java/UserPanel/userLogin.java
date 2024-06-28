@@ -79,21 +79,22 @@ public class userLogin extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
-            PreparedStatement pst = con.prepareStatement("select * from ulogin where username=? and password=?");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Online_store", "root", "root");
+            PreparedStatement pst = con.prepareStatement("select * from user_login where Username=? and Password=?");
             pst.setString(1, user);
             pst.setString(2, pass);
             ResultSet rs = pst.executeQuery();
             if (rs.isBeforeFirst()) {
                 HttpSession session = request.getSession();
                 session.setAttribute("uname", user);
-                response.sendRedirect("../OnlineStore/userSide/userHomepage.jsp");
+                response.sendRedirect("userHomepage.jsp");
 //                RequestDispatcher rd = request.getRequestDispatcher("../web/userSide/userHomepage.jsp");
 //                rd.forward(request, response);
             } else {
-                pt.print("Username or Password Incorrect.");
                 RequestDispatcher rd = request.getRequestDispatcher("Ulogin.jsp");
                 rd.include(request, response);
+                pt.print("Username or Password Incorrect.");
+
             }
         } catch (Exception ex) {
             pt.print(ex.getMessage());

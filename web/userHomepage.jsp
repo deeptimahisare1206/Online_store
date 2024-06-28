@@ -18,9 +18,9 @@
                 padding: 0;
             }
             body{
-                background: url("../image/BingWallpaper (8).jpg");
-                /*                display: flex;
-                                justify-content: center;*/
+                
+                height: 100vh;
+                background:linear-gradient(75deg,navy,#0099ff,blue)no-repeat;
             }
             div{
                 text-align: center;
@@ -70,9 +70,10 @@
         </style>
     </head>
     <body>
-        <button class="btn" ><a href="../index.html"><i class="fa fa-home" style="font-size:40px"></i></a></button>
+        <!--<button class="btn" ><a href="../index.html"><i class="fa fa-home" style="font-size:40px"></i></a></button>-->
 
         <div>
+            <%@include file="navbar.html" %>
             <%
 
                 String str = (String) session.getAttribute("uname");
@@ -90,7 +91,7 @@
                 <li class="home_li"><a href="bookDetails.jsp">BOOK DETAILS</a></li>
                 <!--<li class="home_li"><a href="addCart.jsp">ADD CART</a></li>-->
                 <li class="home_li"><a href="userProfile.jsp">USER PROFILE</a></li>
-                <li class="home_li"><a href="../ulogout">LOGOUT</a></li>
+                <li class="home_li"><a href="ulogout">LOGOUT</a></li>
             </ul>
             <%
             } else {

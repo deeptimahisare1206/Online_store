@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Nav</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            nav{
+                height: 10vh;
+                background-color: lightcoral;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                border: 2px solid black;
+            }
+            ul{
+               display: flex;
+               /*justify-content: center;*/
+               align-items: center;
+
+            }
+            li{
+                display:inline-block;
+            }
+            nav a{
+               
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: black ;
+                margin: 10px;
+                text-decoration: none;
+                list-style: none;
+            }
+           
+
+            a:hover{
+                font-weight: bolder;
+                text-shadow: 2px 2px 3px yellow;
+            }
+            .logo img{
+                height: 3.8rem;
+                width: 15rem;
+            }
+            @media (max-width:768px){
+                p{
+                    font-size: 30px;
+                    /*background-color: black;*/
+                    margin: 2em 0 1em 10%;
+                }
+                ul li{
+                    font-size: 1rem;
+                }
+                img{
+                    height:1.9em;
+                    width:3em;
+                }
+                ul{
+                    flex-direction: column;
+                    border: 2px solid yellow;
+                   
+                }
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <h1>
+         <nav>
+                    <div class="logo">
+                        <img src="image/logo.jpeg" alt="alt" />
+                    </div>
+                    <ul>
+                        <li><a href="home.html">HOME</a></li>
+                        <li><a href="Ulogin.jsp">LOGIN</a></li>
+                        <li><a href="Registration.jsp">SIGNUP</a></li>
+                        <li><a href="userHomepage.jsp">PROFILE</a></li>
+                        <li><a href="">CONTACT US</a></li>
+                    </ul>
+                </nav>
+        </h1>
+    </body>
+</html>

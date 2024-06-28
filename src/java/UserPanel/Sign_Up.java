@@ -83,8 +83,8 @@ public class Sign_Up extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
-            PreparedStatement pst = con.prepareStatement("select * from ulogin where username=?");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Online_store", "root", "root");
+            PreparedStatement pst = con.prepareStatement("select * from user_login where Username=?");
             pst.setString(1, user);
             ResultSet rs = pst.executeQuery();
             if (rs.isBeforeFirst()) {
@@ -92,7 +92,7 @@ public class Sign_Up extends HttpServlet {
                 pt.print("**Username already exist..");
 
             } else {
-                PreparedStatement pst1 = con.prepareStatement("insert into ulogin values(?,?,?,?,?,?)");
+                PreparedStatement pst1 = con.prepareStatement("insert into user_login values(?,?,?,?,?,?)");
                 pst1.setString(1, fname);
                 pst1.setString(2, add);
                 pst1.setLong(3, num);
@@ -102,7 +102,7 @@ public class Sign_Up extends HttpServlet {
                 int i = pst1.executeUpdate();
                 if (i > 0) {
                     JOptionPane.showMessageDialog(null, "Registration Successfull.👍🏼");
-                    response.sendRedirect("./userSide/Ulogin.jsp");
+                    response.sendRedirect("Ulogin.jsp");
                 }
 
             }

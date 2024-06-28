@@ -10,43 +10,44 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add Book</title>
+        <link rel="stylesheet" href="../includeFiles.css"/>
+
         <style>
             *{
                 margin: 0;
                 padding:0;
             }
             body{
-                background: url("../image/15.jpg");
-                background-position: top;
-                background-size: cover;
-                text-align: center;
+                height: 100vh;
+                display: flex;
+                /*background:radial-gradient(#973033,purple);*/
+
             }
             .all{
-                display: grid;
-                grid-template-columns: auto auto;
-                /*column-gap: 30px;*/
-                /*                align-items: center;
-                                justify-content: space-between;
-                                position:absolute;
-                                top:30%;
-                                left:30%;*/
-            }
-            .amain{
-                height: 550px;
-                color: white;
-                font-weight: bolder;
+                /*width: 100vw;*/
                 display: flex;
-                justify-content: right;
+                flex-direction: column;
+                /*justify-content: center;*/
                 align-items: center;
+                gap: 2rem;
+                flex: 3;
+
+            }
+
+            .amain{
+                padding: 2rem 5rem;
+                width: 35rem;
+                border-radius: 3rem;
+                font-weight: bolder;
                 font-size: 30px;
-                backdrop-filter: blur(0px);
-                padding-right: 10%;
+                backdrop-filter: blur(6px);
+                background:rgba(200,240,240,0.3);
+                /*padding-right: 10%;*/
             }
             .head{
-                height: 100%;
+                /*height: 100%;*/
                 display: flex;
-                padding-right: 10%; 
-                justify-content: right;
+                justify-content: center;
                 align-items: center;
             }
 
@@ -78,10 +79,17 @@
                 box-shadow: 1px 1px 15px gold;
                 border: none;
             }
+
+
         </style>
     </head>
     <body>
+        <div class="include">
+            <%@include file="adminHomepage.jsp"%>
+        </div>
+
         <div class="all">
+
             <div class="head">
                 <h1>
                     <%String str = (String) session.getAttribute("uname");

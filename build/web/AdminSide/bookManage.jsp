@@ -11,20 +11,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Book management</title>
+        <link rel="stylesheet" href="../includeFiles.css"/>
         <style>
             *{
                 margin: 0;
                 padding: 0;
             }
             body{
+                height: 100vh;
                 text-align: center;
-                background: url("../image/13.2.jpeg");
+                /*background: url("../image/13.2.jpeg");*/
                 /*background-size: cover;*/
                 /*background-position: center;*/
             }
             .Manage{
                 display: flex;
-                justify-content: right;
+                justify-content: center;
                 margin: 10px;
                 padding: 30px;
             }
@@ -32,15 +34,33 @@
                 width: 60em;
             }
             table tr,th ,td{
+                background-color: #ccffaa;
                 padding: 10px;
                 border: 3px solid black;
             }
             table th{
                 background-color: white;
             }
+            
+             .include .ahome_ul{
+
+                height: 15vh;
+                /*background: red;*/
+                display: flex;
+                gap: 3rem;
+                margin: 0.2rem;
+                /*flex-direction: column;*/
+            }
+            .include .ahome_li{
+                height: 5rem;
+                font-size: 0.6rem;}
         </style>
     </head>
     <body>
+        
+            <div class="include">
+                <%@include file="adminHomepage.jsp"%>
+            </div>
         <h1>
             <%String str = (String) session.getAttribute("uname");
                 out.print("Welcome " + str);
@@ -61,8 +81,8 @@
                 <%        
                     try {
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
-                        PreparedStatement pst = con.prepareStatement("select * from books");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
+                        PreparedStatement pst = con.prepareStatement("select * from Books");
                         ResultSet rs = pst.executeQuery();
                         while (rs.next()) {
                             String Bid = rs.getString(1);

@@ -15,7 +15,7 @@
                 margin: 0;
                 padding: 0;
             }
-            body{
+            html{
                 text-align: center;
                 background:radial-gradient(#3399ff,navy);
                 justify-content: center;
@@ -84,7 +84,7 @@
             <%
             } else {
             %>
-            <jsp:include page="../index.html"></jsp:include>
+            <jsp:include page="../index.jsp"></jsp:include>
             <%
                     out.print("Login first!!!");
                 }
