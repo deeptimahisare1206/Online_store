@@ -4,6 +4,9 @@
     Author     : ASUS
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="java.util.LinkedHashSet"%>
+<%@page import="java.util.HashSet"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
@@ -34,7 +37,7 @@
                         k = k + 1;
                         session.setAttribute("count", new Integer(k));
                     }
-                    ArrayList al = new ArrayList();
+                    List<String> al = new ArrayList();
                     al.add(rs1.getString(1));
                     al.add(rs1.getString(2));
                     al.add(rs1.getString(3));

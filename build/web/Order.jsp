@@ -4,6 +4,7 @@
     Author     : ASUS
 --%>
 
+<%@page import="java.util.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,7 +29,9 @@
                 padding: 20px;
             }*/
             table{
-                width: 70em;
+background-color: #33ccff;
+                width: 100vw;
+                padding: 2rem;
             }
             table tr,th ,td{
                 padding: 10px;
@@ -62,7 +65,7 @@ if(str!=null){
                 <th>Action</th>
             </tr>
             <%                for (i = 1; i <= (Integer) session.getAttribute("count"); i++) {
-                    ArrayList str1 = (ArrayList) session.getAttribute("" + i);
+                    List str1 = (List) session.getAttribute("" + i);
                     Iterator itr = str1.iterator();
                     {
                         int p = 0;

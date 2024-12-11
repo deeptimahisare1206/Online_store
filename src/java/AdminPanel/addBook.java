@@ -4,20 +4,27 @@
  */
 package AdminPanel;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.*;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author ASUS
+ * 
  */
+@MultipartConfig
 public class addBook extends HttpServlet {
 
     /**
@@ -76,26 +83,64 @@ public class addBook extends HttpServlet {
         PrintWriter pt = response.getWriter();
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-        pt.print("Welcome" + session.getAttribute("uname"));
+//        pt.print("Welcome" + session.getAttribute("uname"));
         String bname = request.getParameter("bname");
         String aname = request.getParameter("aname");
         int price = Integer.parseInt(request.getParameter("price"));
         int quantity = Integer.parseInt(request.getParameter("qty"));
+             Part file = request.getPart("pic");
+            String filename= file.getSubmittedFileName();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
-            PreparedStatement pst = con.prepareStatement("insert into Books(BookName, AuthorName, Price, Quantity) values(?,?,?,?)");
+            PreparedStatement pst = con.prepareStatement("insert into Books(BookName, AuthorName, Price, Quantity, Book_Pic) values(?,?,?,?,?)");
+            
+            
+
+            String drive_path="E:/2. OnlineStore/web/booksimg/" + filename;
+
+            FileOutputStream fos = new FileOutputStream(drive_path);
+            InputStream is = file.getInputStream();
+            byte[] imageData = new byte[is.available()];
+            is.read(imageData);
+            fos.write(imageData);
+            
+            
+            
+            
             pst.setString(1, bname);
             pst.setString(2, aname);
             pst.setInt(3, price);
             pst.setInt(4, quantity);
-            int i=pst.executeUpdate();
-            if(i>0){
-            JOptionPane.showMessageDialog(null, "Book Added Successfully");
-            response.sendRedirect("../OnlineStore/AdminSide/adminHomepage.jsp");
+            pst.setString(5, filename);
+            int i= pst.executeUpdate();
+            pt.print("Established");
+            if(i==1){
+                String path = getServletContext().getRealPath("")+"booksimg";
+                file.write(path + File.separator + filename);
+             
+//               session.setAttribute("image", filename+"Uplaod Success");
+            response.sendRedirect("../OnlineStore/AdminSide/addBook.jsp");
+
             }
+            else{
+            pt.print("Not Inserted.");
+            }
+            
+            
+            
+            
+            
+            
+            
+//            int i=pst.executeUpdate();
+//            if(i>0){
+//            JOptionPane.showMessageDialog(null, "Book Added Successfully");
+//            response.sendRedirect("../OnlineStore/AdminSide/adminHomepage.jsp");
+//            }
 
         } catch (Exception e) {
+            pt.print(e.getMessage());
         }
 
     }

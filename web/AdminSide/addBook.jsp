@@ -19,22 +19,15 @@
             }
             body{
                 height: 100vh;
-                display: flex;
-                /*background:radial-gradient(#973033,purple);*/
-
+                background:radial-gradient(#3399ff,navy);
+               
             }
             .all{
-                /*width: 100vw;*/
-                display: flex;
-                flex-direction: column;
-                /*justify-content: center;*/
-                align-items: center;
-                gap: 2rem;
-                flex: 3;
-
+                place-items:  center;
+                padding: 3rem
             }
-
             .amain{
+                place-items: center;
                 padding: 2rem 5rem;
                 width: 35rem;
                 border-radius: 3rem;
@@ -44,11 +37,11 @@
                 background:rgba(200,240,240,0.3);
                 /*padding-right: 10%;*/
             }
-            .head{
-                /*height: 100%;*/
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            h1{
+                text-align: center;
+                font-size: 3rem;
+                padding: 0.5rem;
+                background-color: grey;
             }
 
             tr td{
@@ -58,12 +51,10 @@
             input{
                 width: 300px;
                 height: 40px;
-                /*border-radius: 50px;*/
                 background-color: inherit;
                 color: white;
                 font-size: large;
                 font-weight: bolder;
-                /*padding-left: 40px;*/
                 border:none;
                 border-bottom: 4px dotted whitesmoke;
             }
@@ -79,25 +70,32 @@
                 box-shadow: 1px 1px 15px gold;
                 border: none;
             }
-
+.back{
+                border: 0.5rem double black;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0.5rem;
+                left: 1rem;
+                width: 3rem;
+                height: 3rem;
+            }
 
         </style>
     </head>
     <body>
-        <div class="include">
-            <%@include file="adminHomepage.jsp"%>
-        </div>
+         <a href="adminHomepage.jsp">
+            <div class="back">
 
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-big-left"><path d="M18 15h-6v4l-7-7 7-7v4h6v6z"/></svg>
+            </div></a>
+
+        <h1>ADD BOOK</h1>
         <div class="all">
-
-            <div class="head">
-                <h1>
-                    <%String str = (String) session.getAttribute("uname");
-                        out.print("Welcome " + str);
-                    %><br>ADD BOOK</h1>
-            </div>
             <div class="amain">
-                <form action="../addBook" method="post">
+                <form action="../addBook" method="post" enctype="multipart/form-data">
                     <table>
                         <tr>
                             <td>Book Name:</td>
@@ -115,6 +113,10 @@
                         <tr>
                             <td>Quantity:</td>
                             <td><input type="number" name="qty" /></td>
+                        </tr>
+                        <tr>
+                            <td>Upload Image:</td>
+                            <td><input type="file" name="pic" /></td>
                         </tr>
                         <tr>
                             <td><input type="submit" value="Submit"  class="btn"/></td>

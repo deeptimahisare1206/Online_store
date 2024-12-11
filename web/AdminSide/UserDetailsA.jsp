@@ -19,14 +19,14 @@
             }
             body{
                 height: 100vh;
-                /*display: flex;*/
-                /*background:radial-gradient(#973033,purple);*/
+                background:radial-gradient(#3399ff,navy);
+
 
             }
             .all{
                 /*width: 100vw;*/
-                /*display: flex;*/
-                /*flex-direction: column;*/
+                display: flex;
+                flex-direction: column;
                 /*justify-content: center;*/
                 align-items: center;
                 gap: 2rem;
@@ -44,83 +44,110 @@
                 width: 70em;
             }
             table tr,th ,td{
-                background-color:#ccffaa ;
+                backdrop-filter: blur(2px);
+                /*background:linear-gradient( rgba(50,150,255,0.2),rgba(10,1,100,0.5));*/
+                background-color:rgba(255,250,200,0.5) ;
+
+
                 padding: 10px;
                 border: 3px solid black;
 
             }
             th{
                 background-color: white;
-                
+
             }
-
-
-            .include .ahome_ul{
-
-                height: 15vh;
-                /*background: red;*/
+           .back{
+                border: 0.5rem double black;
+                border-radius: 100%;
                 display: flex;
-                gap: 3rem;
-                margin: 0.2rem;
-                /*flex-direction: column;*/
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0.5rem;
+                left: 1rem;
+                width: 3rem;
+                height: 3rem;
             }
-            .include .ahome_li{
+            img{
+                width: 5rem;
                 height: 5rem;
-                font-size: 0.6rem;}
+                border-radius: 100%;
+            }
+            h1{
+                text-align: center;
+                padding: 0.5rem;
+                background-color: grey;
+                font-size: 3rem;
 
-            </style>
-        </head>
-        <body>
-            <div class="include">
-                <%@include file="adminHomepage.jsp"%>
-            </div>
-            <div class="all">
-                <h1>
-                    <%String str = (String) session.getAttribute("uname");
-                        out.print("Welcome " + str);
+            }
+        </style>
+    </head>
+    <body>
+        <a href="adminHomepage.jsp">
+            <div class="back">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-big-left"><path d="M18 15h-6v4l-7-7 7-7v4h6v6z"/></svg>
+            </div></a>
+            <h1>
+                <%String str = (String) session.getAttribute("uname");
+//                    out.print("Welcome " + str);
+%>USER DETAILS</h1>
+        <div class="all">
+            <div class="udtail">
+                <table border="1">
+                    <tr>
+                        <th>Customer Id</th>
+                        <th>Profile</th>
+                        <th>Customer Name</th>
+                        <th>Customer Address</th>
+                        <th>Mobile Number</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Pin Code</th>
+                        <th>State</th>
+                        <th>Action</th>
+                    </tr>
+                    <%
+                        try {
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
+                            PreparedStatement pst = con.prepareStatement("select * from user_login");
+                            ResultSet rs = pst.executeQuery();
+                            while (rs.next()) {
+                                String Cname = rs.getString(1);
+                                String Cadd = rs.getString(2);
+                                String num = rs.getString(3);
+                                String email = rs.getString(4);
+                                String user = rs.getString(5);
+                                String img = rs.getString(7);
+                                String pin = rs.getString(8);
+                                String state = rs.getString(9);
+                                int cid = rs.getInt("User_id");
                     %>
-                    <br>USER DETAILS</h1>
-                <div class="udtail">
-                    <table border="1">
-                        <tr>
-                            <th>Customer Name</th>
-                            <th>Customer Address</th>
-                            <th>Mobile Number</th>
-                            <th>Email</th>
-                            <th>Username</th>
-                            <th>Action</th>
-                        </tr>
-                        <%
-                            try {
-                                Class.forName("com.mysql.cj.jdbc.Driver");
-                                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
-                                PreparedStatement pst = con.prepareStatement("select * from user_login");
-                                ResultSet rs = pst.executeQuery();
-                                while (rs.next()) {
-                                    String Cname = rs.getString(1);
-                                    String Cadd = rs.getString(2);
-                                    String num = rs.getString(3);
-                                    String email = rs.getString(4);
-                                    String user = rs.getString(5);
-                        %>
-                        <tr>
-                            <td><%=Cname%></td>
-                            <td><%=Cadd%></td>
-                            <td><%=num%></td>
-                            <td><%=email%></td>
-                            <td><%=user%></td>
-                            <td><a href=../deleteUser?id=<%=Cname%>>Delete</a></td>
+                    <tr>
+                        <td style="font-size: 1.5rem ;text-align: center"><%=cid%></td>
+                        <td>            <img src="../userpic/<%=img%>" height="300"width="300" alt="not found" onerror="this.src='../image/profile.png';"/>
+                        </td>
+                        <td><%=Cname%></td>
+                        <td><%=Cadd%></td>
+                        <td><%=num%></td>
+                        <td><%=email%></td>
+                        <td><%=user%></td>
+                        <td><%=pin%></td>
+                        <td><%=state%></td>
+                        <td><a href=../deleteUser?cid=<%=cid%>>Delete</a></td>
 
-                        </tr>
+                    </tr>
 
-                        <%
-                                }
-                            } catch (Exception e) {
+                    <%
                             }
-                        %>
+                        } catch (Exception e) {
+                        }
+                    %>
 
-                    </table>
-                </div>
+                </table>
             </div>
-        </body>
-    </html>
+        </div>
+    </body>
+</html>

@@ -10,55 +10,79 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-         <style>
+        <style>
             *{
                 margin: 0;
                 padding: 0;
-            }
-            body{
-                background: url("image/12.2.jpg")no-repeat maroon;
-                background-size: cover;
-                /*background-position: center;*/
-            }
-            p{
-                margin: 2em 0 1em 45%;
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color:lightcoral ;
-                font-size: 50px;
-                font-weight: bolder;
-                font-family: fantasy;
+                box-sizing: border-box;
+                /*background-color:black;*/
+
+                ;
 
             }
-            input{
-                margin: 0 0 0 60%;
-                font-family: sans-serif;
-                padding: 10px;
-                background:linear-gradient(65deg,lightcoral,lightpink,lightsalmon,plum,palevioletred);
-                border-radius: 10px;
-                font-weight: bold;
+            body{
+                background-color:  #312e2c;
+
+                height: 100vh;
+                /*background: url("image/3.jpeg")no-repeat maroon;*/
+                /*background-size:cove ;*/
+                /*height: ;*/
             }
-           
+            marquee{
+                font-size: 1.5rem;
+                padding:  0.5rem 0 ;
+                                background-color:black;
+                                color: #d49831;
+
+            }
+            .main{
+                /*padding: 13% 10%;*/
+                background: url("image/openbook.jpg");
+                border: 2px solid black;
+                height: 90vh;
+/*                display: grid;
+                place-items: first;*/
+                background-position:center;
+
+            }
+            p{
+                text-align: center;
+                color: white;
+                font-family: serifs;
+                /*float: right;*/
+                font-size: 3rem;
+                backdrop-filter: blur(2px);
+                background:linear-gradient( rgba(50,150,255,0.2),rgba(10,1,10,0.5));
+            }
+
 
 
         </style>
     </head>
     <body>
         <%@include file="navbar.html"%>
-        <h1>
-            <div class="main">
-                
-                <marquee style="color: red"><--Shop the latest books now before its Stock Out--></marquee>
-                <p>
-                    WELCOME TO THE ONLINE STORE<br />
-                    NEW ARRIVALS
-                </p>
-                <form action="home.html">
-                    <input type="submit" value="Get started -->>">
-                </form> 
+
+        <div class="main">
+            <marquee ><--Shop the latest books now before its Stock Out--></marquee>
+            <h1>
+                 <%
+                                    String invi = request.getParameter("comment");
+                                    if (invi != null && invi.equals("success")) {
+                                %>
+                                <p style="color:yellow; font-size: medium">Thank you for your feedback!😊</p>
+                                <%
+                                    }
+                                %>
+            </h1>
+            <p>
+                WELCOME TO THE ONLINE STORE<br />
+                NEW ARRIVALS
+            </p>
 
 
 
-            </div>
-        </h1>
+
+        </div>
+
     </body>
 </html>
