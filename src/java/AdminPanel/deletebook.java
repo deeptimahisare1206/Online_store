@@ -57,12 +57,12 @@ public class deletebook extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          PrintWriter pt = response.getWriter();
-        pt.print("done");
+//        pt.print("done");
         response.setContentType("text/html");
         String num = request.getParameter("did");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
             PreparedStatement pst = con.prepareStatement("delete from books where BookId=?");
             pst.setString(1, num);
             int i = pst.executeUpdate();
@@ -73,6 +73,7 @@ public class deletebook extends HttpServlet {
 
             }
         } catch (Exception ex) {
+           pt.print(ex.getMessage());
         }
     }
 

@@ -55,10 +55,12 @@
                 -webkit-text-stroke: 1px;
                 -webkit-text-stroke-color: black;
             }
-            p{
+            .ahome_nav{
+                padding: 0.5rem;
                 background-color: grey;
-                font-size: 2em;
-
+                font-size: 3rem;
+                display: flex;
+                justify-content: space-evenly;
             }
         </style>
     </head>
@@ -68,12 +70,13 @@
             String admn = (String) session.getAttribute("uname");
             if (admn != null) {
         %>
-        <p>ADMIN HOME PAGE<br>
+        <div class="ahome_nav">
             <%
                 out.print("Welcome " + admn);
             %>
-        </p>
+        </div>
         <div class="ahome_div">
+            <!--<img src="../image/undraw_coding_re_iv62.svg" alt="alt"/>-->
             <ul class="ahome_ul">
                 <li class="ahome_li"><a href="addBook.jsp">ADD BOOK</a></li>
                 <li class="ahome_li"><a href="UserDetailsA.jsp">USER DETAILS</a></li>
@@ -84,9 +87,9 @@
             <%
             } else {
             %>
-            <jsp:include page="../index.jsp"></jsp:include>
+            <jsp:forward page="../index.jsp"></jsp:forward>
             <%
-                    out.print("Login first!!!");
+//                    out.print("Login first!!!");
                 }
             %>
         </div>

@@ -58,11 +58,11 @@ public class deleteUser extends HttpServlet {
             throws ServletException, IOException {
        PrintWriter pt = response.getWriter();
         response.setContentType("text/html");
-        String cust = request.getParameter("id");
+        String cust = request.getParameter("cid");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
-            PreparedStatement pst = con.prepareStatement("delete from ulogin where Name=?");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
+            PreparedStatement pst = con.prepareStatement("delete from user_login where User_id=?");
             pst.setString(1, cust);
             int i = pst.executeUpdate();
             if (i > 0) {
@@ -72,6 +72,7 @@ public class deleteUser extends HttpServlet {
 
             }
         } catch (Exception ex) {
+            pt.print(ex.getMessage());
         }
     }
 

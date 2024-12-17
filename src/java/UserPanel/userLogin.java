@@ -87,13 +87,14 @@ public class userLogin extends HttpServlet {
             if (rs.isBeforeFirst()) {
                 HttpSession session = request.getSession();
                 session.setAttribute("uname", user);
+               
                 response.sendRedirect("userHomepage.jsp");
 //                RequestDispatcher rd = request.getRequestDispatcher("../web/userSide/userHomepage.jsp");
 //                rd.forward(request, response);
             } else {
-                RequestDispatcher rd = request.getRequestDispatcher("Ulogin.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("Ulogin.jsp?pass=incorrect");
                 rd.include(request, response);
-                pt.print("Username or Password Incorrect.");
+//                pt.print("Username or Password Incorrect.");
 
             }
         } catch (Exception ex) {

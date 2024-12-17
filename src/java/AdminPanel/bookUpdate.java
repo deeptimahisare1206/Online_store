@@ -38,9 +38,10 @@ public class bookUpdate extends HttpServlet {
         String an = request.getParameter("txt2");
         int mrp = Integer.parseInt(request.getParameter("txt3"));
         int qty = Integer.parseInt(request.getParameter("txt4"));
+        pt.print(Bd);
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/onlinestore", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
 //            Statement stmt=con.createStatement();
 
             PreparedStatement st = con.prepareStatement("update books set BookName=?, AuthorName=? ,Price=? ,Quantity=? where BookId=?");
@@ -57,7 +58,7 @@ public class bookUpdate extends HttpServlet {
                 response.sendRedirect("../OnlineStore/AdminSide/bookManage.jsp");
             }
         } catch (Exception ex) {
-//            pt.print(ex.getMessage());
+            pt.print(ex.getMessage());
         }
     }
     @Override

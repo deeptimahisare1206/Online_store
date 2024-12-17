@@ -60,7 +60,7 @@ public class ulogout extends HttpServlet {
         response.setContentType("text/html");
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("./index.html");
+        response.sendRedirect("./index.jsp");
 
     }
 

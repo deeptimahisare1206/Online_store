@@ -15,11 +15,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             }
             nav{
                 height: 10vh;
-                background-color: lightcoral;
+                /*border-bottom: 2px solid maroon;*/
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                border: 2px solid black;
+                /*border: 2px solid black;*/
+                /*box-shadow: 1px 2px 15px 1px grey;*/
+                font-size: 1.5rem ;
+                /*font-weight: bolder;*/
             }
             ul{
                display: flex;
@@ -31,23 +34,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 display:inline-block;
             }
             nav a{
-               
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: black ;
+               color: white;
+                /*-webkit-text-stroke-width: 1px;*/
+                /*-webkit-text-stroke-color: black ;*/
                 margin: 10px;
                 text-decoration: none;
                 list-style: none;
             }
            
-
-            a:hover{
-                font-weight: bolder;
-                text-shadow: 2px 2px 3px yellow;
+            .logo h1 a{
+                color: #d49831;
             }
-            .logo img{
-                height: 3.8rem;
-                width: 15rem;
+            .logo{
+                padding-left: 1rem;
+                color: #d49831  ;
             }
+            li a:hover{
+                border-bottom: 5px solid #d49831;
+                
+            }
+            
             @media (max-width:768px){
                 p{
                     font-size: 30px;
@@ -72,19 +78,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </style>
     </head>
     <body>
-        <h1>
          <nav>
                     <div class="logo">
-                        <img src="image/logo.jpeg" alt="alt" />
+                        <h1><a href="index.jsp" style="hover:none">Book-Store</a></h1>
                     </div>
                     <ul>
-                        <li><a href="home.html">HOME</a></li>
+                        <li><a href="home.jsp">HOME</a></li>
                         <li><a href="Ulogin.jsp">LOGIN</a></li>
                         <li><a href="Registration.jsp">SIGNUP</a></li>
-                        <li><a href="userHomepage.jsp">PROFILE</a></li>
-                        <li><a href="">CONTACT US</a></li>
+                        <li><a href="contact.jsp">CONTACT US</a></li>
                     </ul>
                 </nav>
-        </h1>
     </body>
 </html>
