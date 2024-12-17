@@ -90,8 +90,8 @@ public class forgotPassword extends HttpServlet {
         response.setContentType("text/html"); 
         String email = request.getParameter("email");
 //        String msg = "Your Password is 1234";
-        final String username = "pro.deepwork@gmail.com";//my mail
-        final String password = "tyyo aaix aspn menb";//my password
+        final String username = "";//my mail
+        final String password = "";//my password
         Properties props = new Properties();
         props.setProperty("mail.smtp.auth", "true");
         props.setProperty("mail.smtp.starttls.enable", "true");
