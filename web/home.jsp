@@ -28,7 +28,7 @@
                 height: fit-content;
                 backdrop-filter: blur(5px);
                 background:linear-gradient( rgba(10,1,15,0.2),rgba(10,1,10,0.5));
-          
+
             }
             .cardbox{
                 padding: 3rem;
@@ -73,7 +73,7 @@
                 border-radius: 2rem;
                 margin-top: 1rem;
             }
-            
+
 
             @media screen and (max-width:768px){
                 .cardbox{
@@ -95,7 +95,7 @@
     </head>
     <body>
         <div class="icl">
-        <%@include file="navbar.html" %>
+            <%@include file="navbar.html" %>
         </div>
         <div class="box2">
             <h1 style="color: #d49831" ><u style="color:white"> Most Popular Books</u><br>Buy Right Now</h1>
@@ -111,18 +111,22 @@
                         PreparedStatement pst = con.prepareStatement("select * from Books");
                         ResultSet rs = pst.executeQuery();
                         while (rs.next()) {
+                            byte barry[] = rs.getBytes("Book_Pic");
+                            String base64Image = java.util.Base64.getEncoder().encodeToString(barry);
+
                 %>
                 <div class="card">
-                    <img src="booksimg/<%=rs.getString("Book_Pic")%>" height="100px"width="100px"  alt="Not Found"/>
+                    <!--<img src="booksimg/<%=rs.getString("Book_Pic")%>" height="100px"width="100px"  alt="Not Found"/>-->
+                    <img src="data:image/png;base64,<%= base64Image %>"  height="100px"width="100px"  alt="Not Found"/>
 
 
 
                     <h2><%=rs.getString("BookName")%></h2>
                     <p>Author-  <%=rs.getString("AuthorName")%></p>
                     <h4>Rs.<%=rs.getString("Price")%> </h4>
-                   
+
                     <a href="Ulogin.jsp" class="buy">Buy Now</a>
-                   
+
                 </div>
 
 
