@@ -4,7 +4,7 @@ class BufferWriter{
 		try{
 			FileWriter fw = new FileWriter("Fulka.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
-			String str = "Gollugappaaaaaaaa... wala..";
+			String str = "Gollllllgappppaaaaaaaaaaaaaaa... wwwwwwwwwwwwwwwaaaaaaaaaaaaaaaaaaaaaaallllllllllaaaaaaaaaaaaaaa..";
 			bw.write(str);
 			bw.close();
 		}

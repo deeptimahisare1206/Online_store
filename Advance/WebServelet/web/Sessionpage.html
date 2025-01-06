@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Session Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <style>
+            body{
+                background-color: black;
+                
+            }
+            .box{
+                border: 5px solid brown;
+                width: 300px;
+                height:200px;
+                padding: 30px;
+                
+                margin: 30px;
+                border-radius: 30px;
+                background-color: white;
+            }
+            input{
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+         <div class="box">
+            <form action="SessionServlt" method="post">
+                <label>Username:</label>
+                <input type="text" name="usern" /><br /><br />
+                <input type="submit" name="Submit" value="go"/>
+
+            </form>
+        </div>
+    </body>
+</html>

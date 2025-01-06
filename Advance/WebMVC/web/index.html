@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>MVC</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .all{
+                background: url("back1.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height:565px;
+            }
+            .box{
+                background:linear-gradient(65deg,green,aquamarine,seagreen,lightgreen);
+                border: 7px solid seagreen;
+                width: 300px;
+                height:400px;
+                padding: 30px;
+                font-size: x-large;
+                border-radius: 30px;
+                position: relative;
+                left: 35%;
+                top: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items:  center;
+
+            }
+            input{
+                height: 30px;
+            }
+            .btn{
+                height: 30px;
+                width: 100px;
+                background-color: darksalmon;
+                border-radius: 30px;
+            }
+            img{
+                /*background: url(3566345.png);*/
+                background-position: center;
+                background-size: contain;
+                width:  150px;
+                height: 150px;
+                /*padding: 10px 10px 10px 25px;*/
+                border-radius: 50%;
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class='all'>
+            <p style="text-align:center;background-color: white ;font-family: cursive;font-size: 50px">LOGIN</p>
+            <div class="box">
+                <div class="logo">
+                    <img src="img_757139_a3f3e82_1667995753866_sc.jpg" alt="Not found"/>
+                </div>
+                <hr style="background-color:black;width: 150px; height: 5px"><br>
+                <form action="login.jsp">
+                    <!--<h1 style="text-align:center"> LOGIN </h1>-->
+                    <label>Username:</label>
+                    <input type="text" name="user" required/><br /><br />
+                    <label>Password:</label>
+                    <input type="password" name="password" required/>
+                    <br><br>
+                    <input type="submit" name="Submit" class="btn" />
+                    <input type="reset" name="Reset"  class="btn"/>
+                    <br><br>If you are new user?<a href="Signup.html">SignUp</a>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

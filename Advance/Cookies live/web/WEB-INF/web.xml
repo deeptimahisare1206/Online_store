@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>LoginServlt</servlet-name>
+        <servlet-class>Servletsall.LoginServlt</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Profilesevlt</servlet-name>
+        <servlet-class>Servletsall.Profilesevlt</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logoutservlt</servlet-name>
+        <servlet-class>Servletsall.logoutservlt</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Practicelogindata</servlet-name>
+        <servlet-class>Servletsall.Practicelogindata</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlt</servlet-name>
+        <url-pattern>/LoginServlt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profilesevlt</servlet-name>
+        <url-pattern>/Profilesevlt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logoutservlt</servlet-name>
+        <url-pattern>/logoutservlt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Practicelogindata</servlet-name>
+        <url-pattern>/Practicelogindata</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>

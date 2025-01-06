@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Registration Page CURD JSP</title>
+        <style>
+            body{
+                background:linear-gradient(65deg,blueviolet,#000066,blueviolet,#363062,#000066,blueviolet,#363062);
+            }
+            .box{
+                border: 2px solid white;
+                background-color: gray;
+                backface-visibility: hidden;
+                width: 300px;
+                height:450px;
+                padding: 30px;
+                font-size: x-large;
+                border-radius: 30px;
+                position: relative;
+                left: 35%;
+                top: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items:  center;
+            }
+            input{
+                height: 30px;
+            }
+            .btn{
+                height: 30px;
+                width: 100px;
+                background-color: darksalmon;
+                border-radius: 30px;
+                margin-bottom: 20px;
+
+            }
+            .logo{
+                background: url(3566345.png);
+                background-position: center;
+                background-size: contain;
+                width:  100px;
+                height: 100px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <form action="SignUp.jsp">
+                <p>REGISTRATION FORM</p>
+                <label>Enter your Name:</label>
+                <input type="text" name="name" class="ans" /><br /><br />
+                <label>Enter your Username:</label>
+                <input type="text" name="usern" /><br /><br />
+                <label>Enter the Password:</label>
+                <input type="password" name="pass" required/>
+                <br><br>
+                <input type="submit" name="Submit" class="btn" />
+                <input type="reset" name="Reset"  class="btn"/><br>
+                Already a User? <a href="index.html">LOGIN</a>
+            </form>
+        </div>
+    </body>
+</html>
