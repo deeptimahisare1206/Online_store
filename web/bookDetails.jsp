@@ -4,6 +4,7 @@
     Author     : ASUS
 --%>
 
+<%@page import="java.util.Base64"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 
@@ -180,11 +181,14 @@
                             String Aname = rs.getString(3);
                             String mrp = rs.getString(4);
                             String qty = rs.getString(5);
+                            byte img[] = rs.getBytes("Book_Pic");
+                            String base = Base64.getEncoder().encodeToString(img);
 
                 %>
 
                 <div class="card">
-                    <img src="booksimg/<%=rs.getString("Book_Pic")%>" height="100px"width="100px"  alt="Not Found"/>
+                      <img src="data:image/png;base64,<%=base%>" height="100px"width="100px"  alt="Not Found"/>
+                   
                     <form action="AddToCart" method="post">
                     <div class="container">
                         <!--<h1>Book Details</h1>-->
@@ -204,7 +208,7 @@
                                     <strong>Price:</strong> <input type="text" name="prse" value="₹<%=mrp%>/-">
                                 </div>
                                 <div class="detail-item">
-                                    <strong>Quantity:</strong> <input type="number" value=<%=qty%> ><input type="hidden" name="qy"  value="1" min="1">
+                                    <strong>Quantity:</strong> <input type="number" value=<%=qty%> readonly ><input type="hidden" name="qy"  value="1" min="1">
 
 
                                 </div>
