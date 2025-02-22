@@ -89,7 +89,7 @@ public class adminLogin extends HttpServlet {
             ResultSet rs = pst.executeQuery();
             if (rs.isBeforeFirst()) {
                 HttpSession session = request.getSession();
-                session.setAttribute("uname", user);
+                session.setAttribute("aname", user);
                 response.sendRedirect("../OnlineStore/AdminSide/adminHomepage.jsp");
 //                RequestDispatcher rd = request.getRequestDispatcher("../web/userSide/userHomepage.jsp");
 //                rd.forward(request, response);

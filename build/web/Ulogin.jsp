@@ -119,6 +119,13 @@
 
             <h1>
                 <%
+                     String str = (String) session.getAttribute("uname");
+//                 String str2 = (String) session.getAttribute("userid");
+//                 out.print(str);
+                if (str != null) {
+                    
+                    response.sendRedirect("userHomepage.jsp");
+                    }
                                 String registration = request.getParameter("register");
                                 if (registration != null && registration.equals("success")) {
                                 %>

@@ -8,7 +8,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <title>Nav</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <style>
+        <style>
             *{
                 margin: 0;
                 padding: 0;
@@ -25,23 +25,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 /*font-weight: bolder;*/
             }
             ul{
-               display: flex;
-               /*justify-content: center;*/
-               align-items: center;
+                display: flex;
+                /*justify-content: center;*/
+                align-items: center;
 
             }
             li{
                 display:inline-block;
             }
             nav a{
-               color: white;
+                color: white;
                 /*-webkit-text-stroke-width: 1px;*/
                 /*-webkit-text-stroke-color: black ;*/
                 margin: 10px;
                 text-decoration: none;
                 list-style: none;
             }
-           
+
             .logo h1 a{
                 color: #d49831;
             }
@@ -51,9 +51,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             }
             li a:hover{
                 border-bottom: 5px solid #d49831;
-                
+
             }
-            
+
             @media (max-width:768px){
                 p{
                     font-size: 30px;
@@ -70,7 +70,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 ul{
                     flex-direction: column;
                     border: 2px solid yellow;
-                   
+
                 }
             }
 
@@ -78,16 +78,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </style>
     </head>
     <body>
-         <nav>
-                    <div class="logo">
-                        <h1><a href="index.jsp" style="hover:none">Book-Store</a></h1>
-                    </div>
-                    <ul>
-                        <li><a href="home.jsp">HOME</a></li>
-                        <li><a href="Ulogin.jsp">LOGIN</a></li>
-                        <li><a href="Registration.jsp">SIGNUP</a></li>
-                        <li><a href="contact.jsp">CONTACT US</a></li>
-                    </ul>
-                </nav>
+        <nav>
+            <div class="logo">
+                <h1><a href="index.jsp" style="hover:none">Book-Store</a></h1>
+            </div>
+            <ul>
+                <li><a href="home.jsp">SHOP</a></li>
+                <li><a href="Ulogin.jsp">LOGIN</a></li>
+                <li><a href="Registration.jsp">SIGNUP</a></li>
+                <li><a href="contact.jsp">CONTACT US</a></li>
+                <li><a href="AdminSide/Alogin.jsp">Admin</a></li>
+
+            </ul>
+        </nav>
     </body>
 </html>

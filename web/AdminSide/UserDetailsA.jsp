@@ -29,7 +29,7 @@
                 flex-direction: column;
                 /*justify-content: center;*/
                 align-items: center;
-                gap: 2rem;
+                /*gap: 2rem;*/
                 flex: 3;
 
             }
@@ -37,8 +37,8 @@
             .udtail{
                 display: flex;
                 justify-content: center;
-                margin: 10px;
-                padding: 20px;
+                /*margin: 10px;*/
+                /*padding: 20px;*/
             }
             table{
                 width: 70em;
@@ -77,22 +77,21 @@
             h1{
                 text-align: center;
                 padding: 0.5rem;
-                background-color: grey;
+                /*background-color: grey;*/
                 font-size: 3rem;
 
             }
         </style>
     </head>
     <body>
-        <a href="adminHomepage.jsp">
-            <div class="back">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-big-left"><path d="M18 15h-6v4l-7-7 7-7v4h6v6z"/></svg>
-            </div></a>
+         <%@include file="adminnav.html" %>
+        
             <h1>
-                <%String str = (String) session.getAttribute("uname");
+                <%String admn = (String) session.getAttribute("aname");
+                if (admn != null) {
 //                    out.print("Welcome " + str);
-%>USER DETAILS</h1>
+%>
+USER DETAILS</h1>
         <div class="all">
             <div class="udtail">
                 <table border="1">
@@ -144,6 +143,15 @@
                             }
                         } catch (Exception e) {
                         }
+
+
+} else {
+            %>
+            <jsp:forward page="Alogin.jsp"></jsp:forward>
+            <%
+//                    out.print("Login first!!!");
+                }
+            %>
                     %>
 
                 </table>

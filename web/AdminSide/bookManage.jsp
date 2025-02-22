@@ -4,6 +4,7 @@
     Author     : ASUS
 --%>
 
+<%@page import="java.util.Base64"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
 <!DOCTYPE html>
@@ -30,8 +31,8 @@
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
-                margin: 10px;
-                padding: 30px;
+                /*margin: 10px;*/
+                /*padding: 30px;*/
                 gap: 3rem;
             }
 
@@ -95,22 +96,19 @@
             }
              h1{
                 padding: 0.5rem;
-                background-color: grey;
+                /*background-color: grey;*/
                 font-size: 3rem;
 
             }
         </style>
     </head>
     <body>
-        <a href="adminHomepage.jsp">
-            <div class="back">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-big-left"><path d="M18 15h-6v4l-7-7 7-7v4h6v6z"/></svg>
-            </div></a>
-
+         <%@include file="adminnav.html" %>
+        
+        
 
         <h1>
-            <%                String str = (String) session.getAttribute("uname");
+            <%                String str = (String) session.getAttribute("aname");
                 if (str != null) {
             %>
             BOOK LIST</h1>
@@ -127,12 +125,16 @@
                         String Aname = rs.getString("AuthorName");
                         String mrp = rs.getString("Price");
                         int qty = rs.getInt("Quantity");
+                         byte img[] = rs.getBytes("Book_Pic");
+                            String base = Base64.getEncoder().encodeToString(img);
+
             %>
 
 
             <div class="card">
-                <img src="../booksimg/<%=rs.getString("Book_Pic")%>" height="100px"width="100px"  alt="Not Found"/>
-
+                <!--<img src="../booksimg/<%=rs.getString("Book_Pic")%>" height="100px"width="100px"  alt="Not Found"/>-->
+<img src="data:image/png;base64,<%=base%>" height="100px"width="100px"  alt="Not Found"/>
+                   
                 <p>
 
                     Book Id:- 

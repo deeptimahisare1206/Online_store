@@ -118,7 +118,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
         
         // Updated SQL statement
-        String sql = "INSERT INTO cart (`User_id`, `BookId`, `quantity`) VALUES (?, ?, ?) "
+        String sql = "INSERT INTO testcart (`User_id`, `BookId`, `quantity`) VALUES (?, ?, ?) "
                    + "ON DUPLICATE KEY UPDATE `quantity` = `quantity` + ?";
 
         PreparedStatement pstmt = conn.prepareStatement(sql);

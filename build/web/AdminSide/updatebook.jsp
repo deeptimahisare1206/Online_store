@@ -4,6 +4,7 @@
     Author     : ASUS
 --%>
 
+<%@page import="java.util.Base64"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
 <!DOCTYPE html>
@@ -128,6 +129,10 @@
         </style>
     </head>
     <body>
+        
+         <%String admn = (String) session.getAttribute("aname");
+                if (admn != null) {
+%>
         <a href="bookManage.jsp">
             <div class="back">
 
@@ -149,10 +154,15 @@
                     String Aname = rs.getString("AuthorName");
                     String mrp = rs.getString("Price");
                     int qty = rs.getInt("Quantity");
+                     byte img[] = rs.getBytes("Book_Pic");
+                            String base = Base64.getEncoder().encodeToString(img);
+
         %>
         <div class="span">
             <div class="card">
-                <img src="../booksimg/<%=rs.getString("Book_Pic")%>" height="100px"width="100px"  alt="Not Found"/>
+                <img src="data:image/png;base64,<%=base%>" height="100px"width="100px"  alt="Not Found"/>
+                   
+                <!--<img src="../booksimg/<%=rs.getString("Book_Pic")%>" height="100px"width="100px"  alt="Not Found"/>-->
                 <!--<a class="bt" href="../bookUpdate">Update</a>-->
                 <form action="../updateBookImage" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="bid" value=<%out.print(id);%>>
@@ -210,5 +220,14 @@
                 }
             %>
         </div>
+         <%
+} else {
+            %>
+            <jsp:forward page="Alogin.jsp"></jsp:forward>
+            <%
+//                    out.print("Login first!!!");
+                }
+            %>
+                    %>
     </body>
 </html>

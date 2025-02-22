@@ -2,21 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package AdminPanel;
+package UserPanel;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author ASUS
+ * @author deept
  */
-public class deleteUser extends HttpServlet {
+@WebServlet(name = "deleteProduct", urlPatterns = {"/deleteProduct"})
+public class deleteProduct extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,10 +39,10 @@ public class deleteUser extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet deleteUser</title>");            
+            out.println("<title>Servlet deleteProduct</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet deleteUser at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet deleteProduct at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,24 +60,26 @@ public class deleteUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter pt = response.getWriter();
-         response.setContentType("text/html");
-         String cust = request.getParameter("cid");
-         try {
-             Class.forName("com.mysql.cj.jdbc.Driver");
-             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
-             PreparedStatement pst = con.prepareStatement("delete from user_login where User_id=?");
-             pst.setString(1, cust);
-             int i = pst.executeUpdate();
-             if (i > 0) {
-                 response.sendRedirect("../OnlineStore/AdminSide/UserDetailsA.jsp");
-             } else {
-                 response.sendRedirect("../OnlineStore/AdminSide/adminHomepage.jsp");
+        
+        
+         PrintWriter pt = response.getWriter();
+        response.setContentType("text/html");
+        String cust = request.getParameter("cid");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/online_store", "root", "root");
+            PreparedStatement pst = con.prepareStatement("delete from testcart where cart_id=?");
+            pst.setString(1, cust);
+            int i = pst.executeUpdate();
+            if (i > 0) {
+                response.sendRedirect("C.jsp");
+            } else {
+                response.sendRedirect("bookDetails.jsp");
 
-             }
-         } catch (Exception ex) {
-             pt.print(ex.getMessage());
-         }
+            }
+        } catch (Exception ex) {
+            pt.print(ex.getMessage());
+        }
     }
 
     /**

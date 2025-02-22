@@ -83,7 +83,7 @@ public class addBook extends HttpServlet {
         PrintWriter pt = response.getWriter();
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-//        pt.print("Welcome" + session.getAttribute("uname"));
+        pt.print("Welcome" + session.getAttribute("aname"));
         String bname = request.getParameter("bname");
         String aname = request.getParameter("aname");
         int price = Integer.parseInt(request.getParameter("price"));

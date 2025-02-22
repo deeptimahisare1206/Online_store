@@ -24,7 +24,7 @@
             }
             .all{
                 place-items:  center;
-                padding: 3rem
+                /*padding: 3rem*/
             }
             .amain{
                 place-items: center;
@@ -41,7 +41,7 @@
                 text-align: center;
                 font-size: 3rem;
                 padding: 0.5rem;
-                background-color: grey;
+                /*background-color: grey;*/
             }
 
             tr td{
@@ -86,11 +86,13 @@
         </style>
     </head>
     <body>
-         <a href="adminHomepage.jsp">
-            <div class="back">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-big-left"><path d="M18 15h-6v4l-7-7 7-7v4h6v6z"/></svg>
-            </div></a>
+        
+         <%String admn = (String) session.getAttribute("aname");
+                if (admn != null) {
+//                    out.print("Welcome " + str);
+%>
+         <%@include file="adminnav.html" %>
+        
 
         <h1>ADD BOOK</h1>
         <div class="all">
@@ -126,5 +128,19 @@
                 </form>
             </div>
         </div>
+        
+        
+         <%
+                           
+
+
+} else {
+            %>
+            <jsp:forward page="Alogin.jsp"></jsp:forward>
+            <%
+//                    out.print("Login first!!!");
+                }
+            %>
+                    %>
     </body>
 </html>
