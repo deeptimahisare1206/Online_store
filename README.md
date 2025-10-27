@@ -1,6 +1,6 @@
-# Online Store Project(E-Commerce Website (Books))
+# Online Store Project(E-Commerce Web Application 😎(Books))
 
-This is an Online Store application built using **Java** and **JDBC** for advanced database connectivity. The project simulates an e-commerce platform where users can browse and purchase books, manage their accounts, and perform administrative tasks such as adding books to the catalog. 
+This is an Online Store application built using **Java** and **JDBC** for advanced database connectivity. The project simulates an e-commerce platform where user's can browse and purchase books, manage their accounts, and perform administrative tasks such as adding books to the catalog. 
 
 ## Features
 
